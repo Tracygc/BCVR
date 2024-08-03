@@ -103,7 +103,7 @@ class BCVR(BenchmarkModule):
         feature_dim = list(resnet.children())[-1].in_features
         self.backbone = nn.Sequential(*list(resnet.children())[:-1])
 
-        # BN放在ReLu之后
+        # Relu+BN
         self.projection_head = heads.BCVRProjectionHead(feature_dim, 4096, 3000)
         self.prototypes = heads.SwaVPrototypes(256, 3000)  # use 3000 prototypes
 
@@ -217,8 +217,6 @@ transform2 = BYOLTransform(
     view_2_transform=BYOLView2Transform(input_size=32, gaussian_blur=0.0),
 )
 
-
-# imagentte 的参数
 transform3 = SwaVTransform(
     crop_sizes=(128, 64),
     crop_counts=(2, 6),  # 2 crops @ 128x128px and 6 crops @ 64x64px
