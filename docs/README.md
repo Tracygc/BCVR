@@ -19,6 +19,13 @@ This isn't handled in requirements because the version you'll need depends on yo
 1. If not done yet, authenticate your account using `gcloud auth login`
 1. Deploy to app engine using `gcloud app deploy app.yaml`
 
+
+###  datastes
+Imagenet2012：https://image-net.org/download.php
+Imagenet100：https://image-net.org/download.php
+imagenette： https://github.com/fastai/imagenette
+cifar10： https://www.cs.toronto.edu/~kriz/cifar.html
+
 ### run
 
 ```
@@ -29,8 +36,4 @@ python my_BCVR_cifar10.py
 ```
 
 
-###  datastes
-Imagenet2012：https://image-net.org/download.php
-Imagenet100：https://image-net.org/download.php
-imagenette： https://github.com/fastai/imagenette
-cifar10： https://www.cs.toronto.edu/~kriz/cifar.html
+
