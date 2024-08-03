@@ -21,13 +21,12 @@ This isn't handled in requirements because the version you'll need depends on yo
 
 ### Packages and Modules
 
-Example:
+```
 python  my_BCVR_imagenet_resnet50.py
 python  my_BCVR_imagenet100.py
 python my_BCVR_imagenette.py
 python my_BCVR_cifar10.py
-
-"""
+```
 
 
 ###  datastes
