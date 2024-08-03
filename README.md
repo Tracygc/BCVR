@@ -14,11 +14,6 @@ For building docs with python files (including tutorials) install detectron2.
 This isn't handled in requirements because the version you'll need depends on your GPU/ hardware.
 [Follow instructions](https://detectron2.readthedocs.io/en/latest/tutorials/install.html)
 
-## Deploy the Docs
-1. Open a terminal and go to the `docs/` folder. 
-1. If not done yet, authenticate your account using `gcloud auth login`
-1. Deploy to app engine using `gcloud app deploy app.yaml`
-
 
 ###  datastes
 Imagenet2012：https://image-net.org/download.php
