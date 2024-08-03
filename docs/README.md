@@ -35,6 +35,12 @@ python my_BCVR_imagenette.py
 python my_BCVR_cifar10.py
 ```
 
+### PRETRAIN
+
+```
+python BCVR_pretrain_detectron2.py
+```
+
 
 ### comparison
 ```
