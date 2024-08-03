@@ -1,0 +1,36 @@
+name: Code Format Check
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+    - name: Hack to get setup-python to work on nektos/act
+      run: |
+        if [ ! -f "/etc/lsb-release" ] ; then
+          echo "DISTRIB_RELEASE=18.04" > /etc/lsb-release
+        fi
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.7"
+        cache: pip
+        cache-dependency-path: |
+          pyproject.toml
+    - name: Install Dependencies and lightly
+      run: pip install -e '.[all]'
+    - name: Run Format Check
+      run: |
+        make format-check
+    - name: Run Type Check
+      run: |
+        make type-check

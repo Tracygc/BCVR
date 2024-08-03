@@ -1,0 +1,52 @@
+import argparse
+import glob
+import os
+import tqdm
+
+
+def get_parser():
+    parser = argparse.ArgumentParser(description="Detectron2 demo for builtin configs")
+    parser.add_argument(
+        "--config-file",
+        #default="configs/quick_schedules/mask_rcnn_R_50_FPN_inference_acc_test.yaml",
+        default="configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml",
+        metavar="FILE",
+        help="path to config file",
+    )
+    parser.add_argument("--webcam", action="store_true", help="Take inputs from webcam.")
+    parser.add_argument("--video-input", help="Path to video file.")
+    parser.add_argument(
+        "--input",
+        # nargs="+",
+        default='test_data\*.jpg',
+        help="A list of space separated input images; "
+        "or a single glob pattern such as 'directory/*.jpg'",
+    )
+    parser.add_argument(
+        "--output",
+        default="res\*.jpg",
+        help="A file or directory to save output visualizations. "
+        "If not given, will show output in an OpenCV window.",
+    )
+
+    parser.add_argument(
+        "--confidence-threshold",
+        type=float,
+        default=0.5,
+        help="Minimum score for instance predictions to be shown",
+    )
+    parser.add_argument(
+        "--opts",
+        help="Modify config options using the command-line 'KEY VALUE' pairs",
+        default=[],
+        nargs=argparse.REMAINDER,
+    )
+    return parser
+
+if __name__ == "__main__":
+    args = get_parser().parse_args()
+    print(args.input)
+    args_input = glob.glob(os.path.expanduser(args.input))
+    print(args_input)
+    for path in tqdm.tqdm(args_input, disable=not args.output):
+        print(path)
