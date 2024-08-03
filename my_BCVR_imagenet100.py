@@ -99,7 +99,7 @@ class BCVR(BenchmarkModule):
         feature_dim = list(resnet.children())[-1].in_features
         self.backbone = nn.Sequential(*list(resnet.children())[:-1])
 
-        # BN放在ReLu之后
+        # Relu+BN
         self.projection_head = heads.BCVRProjectionHead(feature_dim, 4096, 3000)
         self.prototypes = heads.SwaVPrototypes(256, 3000)  # use 3000 prototypes
 
@@ -134,7 +134,6 @@ class BCVR(BenchmarkModule):
 
 
     def configure_optimizers(self):
-        # 使用tico的sgd
         optim = torch.optim.SGD(
             self.parameters(),
             lr=0.3 * lr_factor,
