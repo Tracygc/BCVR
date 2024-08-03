@@ -19,7 +19,7 @@ This isn't handled in requirements because the version you'll need depends on yo
 1. If not done yet, authenticate your account using `gcloud auth login`
 1. Deploy to app engine using `gcloud app deploy app.yaml`
 
-### Packages and Modules
+### run
 
 ```
 python  my_BCVR_imagenet_resnet50.py
