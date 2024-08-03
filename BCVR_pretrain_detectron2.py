@@ -12,8 +12,6 @@ from lightly.data import LightlyDataset
 from lightly.models.modules import BCVRProjectionHead
 from lightly.transforms import SwaVTransform
 from typing import List, Tuple
-from lightly.loss.bcvr_loss import bcvrLoss2,bcvrLoss4
-from lightly.loss import NegativeCosineSimilarity, VICRegLoss
 from lightly.utils import scheduler
 from lightly.utils.scheduler import cosine_schedule
 from lightly.models import ResNetGenerator, modules, utils
