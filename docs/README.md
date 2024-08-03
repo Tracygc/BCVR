@@ -36,4 +36,12 @@ python my_BCVR_cifar10.py
 ```
 
 
+### comparison
+```
+python benchmarks/xx_benchmark.py
+python benchmarks/imagenet/resnet50/main.py
+python benchmarks/imagenet/vitb16/main.py
+```
+
+
 
