@@ -138,7 +138,6 @@ class BCVR(BenchmarkModule):
 
 
     def configure_optimizers(self):
-        # 使用tico的sgd
         optim = torch.optim.SGD(
             self.parameters(),
             lr=0.3 * lr_factor,
