@@ -1,16 +1,13 @@
 # Documentation Guide
 
 ## Prerequisites
-Make sure you installed dev dependencies:
-```
-pip install -r ../requirements/dev.txt
-```
-
 You may have to set up a clean environment (e.g. with Conda) and use setuptools from the parent directory:
 ```
 conda create -n lightly python=3.7
 conda activate lightly
-pip install -e .["all"]
+python setup.py install
+pip install -r ../requirements/dev.txt
+pip install -r ../requirements/openapi.txt
 ```
 
 For building docs with python files (including tutorials) install detectron2.
