@@ -24,7 +24,6 @@ from typing import List, Tuple
 from lightly.transforms import SwaVTransform
 from benchmarks.imagenet.resnet50 import finetune_eval,knn_eval,linear_eval, BCVR
 
-# 解决num_worker的警告
 from torch.multiprocessing import set_start_method
 try:
      set_start_method('spawn')
