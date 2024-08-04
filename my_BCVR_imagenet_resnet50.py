@@ -22,7 +22,8 @@ from lightly.utils.dist import print_rank_zero
 import torch
 from typing import List, Tuple
 from lightly.transforms import SwaVTransform
-from benchmarks.imagenet.resnet50 import finetune_eval,knn_eval,linear_eval, BCVR
+from benchmarks.imagenet.resnet50 import finetune_eval,knn_eval,linear_eval
+from benchmarks.imagenet.resnet50.BCVR import BCVR
 
 from torch.multiprocessing import set_start_method
 try:
