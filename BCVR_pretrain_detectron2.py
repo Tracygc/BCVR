@@ -8,7 +8,6 @@ from detectron2.detectron2 import config, modeling
 from detectron2.detectron2.checkpoint import DetectionCheckpointer
 
 from lightly.data import LightlyDataset
-# from lightly.loss import NTXentLoss
 from lightly.models.modules import BCVRProjectionHead
 from lightly.transforms import SwaVTransform
 from typing import List, Tuple
@@ -48,7 +47,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 data_path = "G:/datasets/Imagenet2012/Imagenet2012/ILSVRC2012_img_val/"
 cfg_path = "./Base-RCNN-FPN.yaml"
 batch_size = 128
-lr_factor = batch_size / 256 
+lr_factor = batch_size / 128
 
 # %%
 # Initialize the Detectron2 Model
@@ -134,10 +133,7 @@ dataloader_train= torch.utils.data.DataLoader(
 # Now all we need to do is define a loss and optimizer and start training!
 
 # criterion = NTXentLoss()
-criterion1 = NegativeCosineSimilarity()
-criterion2 = bcvrLoss2()
-criterion3 = VICRegLoss()
-criterion4 = bcvrLoss4()
+
 # optimizer = torch.optim.Adam(
 #     list(bcvr_backbone.parameters()) + list(projection_head.parameters()),
 #     lr=1e-4,
@@ -185,10 +181,7 @@ for e in range(max_epochs):
         p1 = bcvr_backbone.forward(x1)
         z1 = bcvr_backbone.forward_momentum(x1)
 
-        loss = ((0.25 * (bcvr_backbone.criterion1(p0, z1) + bcvr_backbone.criterion1(p1, z0)) +
-                 0.25 * bcvr_backbone.criterion2(p0, z1) +
-                 0.25 * (bcvr_backbone.criterion3(p0, p1) - bcvr_backbone.criterion3(z0, z1)) +
-                 0.25 * bcvr_backbone.criterion4(high_resolution_features, low_resolution_features)))
+        loss = 'I will publish the loss code after my article is accepted.'
         loss.backward()
 
         optim.step()
