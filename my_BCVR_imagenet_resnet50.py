@@ -232,7 +232,8 @@ def pretrain(
         ],
         logger=TensorBoardLogger(save_dir=str(log_dir), name="pretrain"),
         precision=precision,
-        strategy="ddp_find_unused_parameters_true",
+        # strategy="ddp_find_unused_parameters_true",
+        strategy=strategy
         sync_batchnorm=accelerator != "cpu",  # Sync batchnorm is not supported on CPU.
         num_sanity_val_steps=0,
     )
