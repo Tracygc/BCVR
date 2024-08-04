@@ -50,6 +50,13 @@ parser.add_argument("--skip-knn-eval", action="store_true", default=False)
 parser.add_argument("--skip-linear-eval", action="store_true", default=False)
 parser.add_argument("--skip-finetune-eval", action="store_true", default=False)
 
+# Set to True to enable Distributed Data Parallel training.
+distributed = False  # a single gpu 
+if distributed:
+    strategy = "ddp"
+else:
+    strategy = None  # Set to "auto" if using PyTorch Lightning >= 2.0
+    
 CROP_COUNTS: Tuple[int, int] = (2, 6)
 transform3 = SwaVTransform(crop_counts=CROP_COUNTS)
 
