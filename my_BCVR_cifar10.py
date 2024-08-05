@@ -216,11 +216,22 @@ transform2 = BYOLTransform(
     view_2_transform=BYOLView2Transform(input_size=32, gaussian_blur=0.0),
 )
 
+# Multi crop augmentation for SwAV, additionally, disable blur for cifar10
 transform3 = SwaVTransform(
-    crop_sizes=(128, 64),
-    crop_counts=(2, 6),  # 2 crops @ 128x128px and 6 crops @ 64x64px
+    crop_sizes=[32],
+    crop_counts=[2],  # 2 crops @ 32x32px
+    crop_min_scales=[0.14],
+    crop_max_scales=[1],
     cj_strength=0.5,
+    gaussian_blur=0,
 )
+
+# imagentte 的参数
+# transform3 = SwaVTransform(
+#     crop_sizes=(128, 64),
+#     crop_counts=(2, 6),  # 2 crops @ 128x128px and 6 crops @ 64x64px
+#     cj_strength=0.5,
+# )
 
 transform4 = SimSiamTransform(input_size=32)
 
