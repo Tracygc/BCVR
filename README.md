@@ -30,10 +30,12 @@ python my_BCVR_imagenette.py
 python my_BCVR_cifar10.py
 ```
 
-### PRETRAIN
+### PRETRAIN and Downstream task
 
 ```
 python BCVR_pretrain_detectron2.py
+python train_bcvr_detection2-coco.py
+python train_bcvr_detection2-voc.py
 ```
 
 
