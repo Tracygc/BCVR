@@ -99,9 +99,15 @@ class BCVR(BenchmarkModule):
         super().__init__(dataloader_kNN, num_classes)
         # # create a ResNet backbone and remove the classification head
 
-        resnet = torchvision.models.resnet18()
+        # resnet = torchvision.models.resnet18()
+        # feature_dim = list(resnet.children())[-1].in_features
+        # self.backbone = nn.Sequential(*list(resnet.children())[:-1])
+
+                resnet = ResNetGenerator("resnet-18")
         feature_dim = list(resnet.children())[-1].in_features
-        self.backbone = nn.Sequential(*list(resnet.children())[:-1])
+        self.backbone = nn.Sequential(
+            *list(resnet.children())[:-1], nn.AdaptiveAvgPool2d(1)
+        )
 
         # Relu+BN
         self.projection_head = heads.BCVRProjectionHead(feature_dim, 4096, 3000)
