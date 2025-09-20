@@ -38,14 +38,12 @@ python train_bcvr_detection2-coco.py
 python train_bcvr_detection2-voc.py
 ```
 
-
 ### comparison
 ```
 python benchmarks/xx_benchmark.py
 python benchmarks/imagenet/resnet50/main.py
 python benchmarks/imagenet/vitb16/main.py
 ```
-
 
 ### Cite
 ```
