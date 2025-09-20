@@ -48,6 +48,7 @@ python benchmarks/imagenet/vitb16/main.py
 
 
 ### Cite
+```
 @article{GUO2025114207,
 title = {BCVR: Bootstrap Clustering with Variance Regularization and Covariance Contrast for Self-supervised Learning},
 journal = {Knowledge-Based Systems},
@@ -59,6 +60,7 @@ doi = {https://doi.org/10.1016/j.knosys.2025.114207},
 url = {https://www.sciencedirect.com/science/article/pii/S0950705125012481},
 author = {Cong Guo and Kan Ren and Qian Chen},
 }
+```
 
 
 
